@@ -1,0 +1,53 @@
+ATUL KUMAR PANDEY
+Senior Unity Developer  ·  4+ Years  ·  Mobile · WebGL · Multiplayer
+atul.pandey.local@gmail.com  ·  8130853178  ·  Sangam Vihar, Nandgram, Ghaziabad  ·  linkedin.com/in/atul-pandey-a0ab23198
+ Live WebGL Demo▶   ·   Mystic Motors (Play Store)▶   ·   Mystic Motors (App Store)▶   ·   Adventure Trip on Play Store▶
+E X P E R I E N C E
+Senior Unity Developer  ·  Tec Ventures Apr 2024 – Present
+▸ Sole engineer on Mystic Motors — shipped end-to-end to Google Play & App Store; integrated Google/Apple/Guest Login, Firebase IAP, and 
+Firestore leaderboards, achieving a live dual-platform monetised product within 4 months.
+▸ Owned full mobile build pipeline (Android + iOS): CI builds, Firebase Crashlytics monitoring, and staged rollout — zero critical post-launch crashes 
+across initial 1,000+ installs.
+▸ Architected spell-based multiplayer combat loop with Photon PUN2; optimised network sync intervals, cutting observable input lag by ~35% 
+versus naive approach.
+▸ Mentored 1 junior developer on Unity best practices, code review standards, and Git branching strategy — reduced rework cycles by 50% within 
+2 sprints.
+Unity Developer → Mid-Level Unity Developer  ·  Abhiwan Technology Pvt 
+Ltd
+Mar 2021 – Mar 2024
+▸ Delivered 5 client-facing Unity projects in 3 years across mobile and PC — all shipped on schedule with zero scope-blocking bugs at handoff, 
+earning repeat client contracts.
+▸ Designed and built Classroom Metaverse: multi-platform (PC/Android/iOS) virtual classroom with Agora Voice SDK + Photon supporting 30+ 
+concurrent users and real-time screen sharing.
+▸ Cut API round-trips by ~40% in the 3D Instagram clone by replacing polling with Socket.IO event-driven architecture, directly reducing session 
+load time from ~4s to ~2.5s.
+▸ Took ownership of technical scoping for new feature requests — translated client briefs into sprint tasks, reducing estimation errors and 
+preventing mid-sprint scope creep on 3 consecutive projects.
+S H I P P E D  P R O J E C T S
+Mystic Motors  —  Android & iOS  |  Unity 3D · C# · Firebase Auth · Firestore · IAP · 
+Photon · FCM
+ Play Store▶   ·   App Store▶
+Published cross-platform racing game with spell-based combat, multi-map progression, and full monetisation stack (IAP, Unity Ads). 
+Google/Apple/Guest SSO, Firestore leaderboards, Firebase push notifications, and Crashlytics. Live on both Android & iOS.
+Adventure Trip: World Wonders  —  Google Play  |  Unity 3D · C# · Firebase · Figma · 
+FCM · REST API
+play.google.com/store/apps/details?
+id=com.Point8Games.AdventureTripWonderso
+ftheWorld
+Hidden-object puzzle game with 10+ timed levels. Firebase Firestore for cloud save & progress sync; FCM for re-engagement notifications. UI/UX 
+designed in Figma and pixel-perfectly implemented in Unity.
+Slot Game  —  Live WebGL (Browser)  |  Unity 3D · C# · WebGL · DoTween · REST API · 
+Figma
+slotgameunityweb.netlify.app
+Zero-install browser slot game deployed via Unity WebGL. Dynamic payout logic via REST API; DoTween-driven reel animations at 60fps. Figma-to-
+Unity UI pipeline with < 2px layout deviation.
+T E C H N I C A L  S K I L L S
+Engine & Language: Unity 3D / 2D  ·  C#  ·  C  ·  Unity WebGL  ·  Unity Addressables
+Multiplayer & Network: Photon PUN2  ·  Socket.IO  ·  WebSocket  ·  Agora Voice SDK
+Backend & Auth: Firebase Auth  ·  Firestore  ·  FCM  ·  In-App Purchases  ·  REST API  ·  Google/Apple Login
+UI/UX & Design: Figma  ·  UI/UX Design  ·  DoTween  ·  Unity UI Toolkit  ·  Ready Player Me
+DevOps & Tools: Git  ·  Firebase Crashlytics  ·  Unity Cloud Build  ·  Android Studio  ·  Xcode
+Platforms: Android  ·  iOS  ·  PC  ·  WebGL
+E D U C A T I O N
+BCA  ·  Hi-Tech Institute of Engineering & Technology 2020 – 2023  ·  70%
+Intermediate (PCB)  ·  P.C. Senior Secondary School 2020  ·  75%
