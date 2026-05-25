@@ -17,7 +17,7 @@ const entries: Entry[] = [
     title: 'Senior Unity Developer at Tec Ventures',
     subtitle: 'Sole engineer shipping Mystic Motors to App Store and Google Play.',
     description: 'Managed complete build pipeline (Android + iOS), integrated Google/Apple SSO, Firebase IAP leadboards, and FCM push notifications. Achieved 1000+ installs with 0 critical crashes.',
-    image: './images/Mystic Game Png.png',
+    image: './images/mystic-motors.jpeg',
     timeline: 'Apr 2024 – Present · 5 min read',
     tags: ['Mobile Development', 'IAP Stack', 'CI/CD']
   },
@@ -26,7 +26,7 @@ const entries: Entry[] = [
     title: 'Architecting Classroom Metaverse',
     subtitle: 'Multi-platform virtual classroom supporting 30+ concurrent users.',
     description: 'Designed Agora Voice SDK & Photon PUN2 networking loops, allowing real-time screen sharing, state synchronizations, and low latency user tracking across WebGL/iOS/Android.',
-    image: './images/Ad2.png',
+    image: './images/classroom.jpg',
     timeline: 'Mar 2023 · 4 min read',
     tags: ['Photon PUN2', 'Agora Voice SDK', 'Metaverse']
   },
@@ -35,7 +35,7 @@ const entries: Entry[] = [
     title: 'Optimizing 3D Social Engine WebGL',
     subtitle: 'Replaced HTTP polling with Socket.IO event-driven structures.',
     description: 'Cut API round-trips by ~40%, reducing WebGL session load times from 4s to 2.5s. Scoped sprint schedules and feature specs directly preventing scope creep.',
-    image: './images/image.png',
+    image: './images/3d-instagram.jpg',
     timeline: 'Nov 2022 · 3 min read',
     tags: ['Socket.IO', 'Performance Tuning', 'WebGL']
   },
@@ -44,7 +44,7 @@ const entries: Entry[] = [
     title: 'Mentoring and Git Branching Strategies',
     subtitle: 'Reduced sprint rework cycles by 50% across two developmental sprints.',
     description: 'Established Unity code review best practices, clean C# patterns, and automated branching strategies. Guided and mentored junior game engineers.',
-    image: './images/Kitchen.png',
+    image: './images/coder.svg',
     timeline: 'Jan 2024 · 3 min read',
     tags: ['Leadership', 'Git Architecture', 'Code Review']
   }
