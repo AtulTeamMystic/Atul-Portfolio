@@ -1,22 +1,32 @@
 {
   "name": "atul-portfolio",
+  "private": true,
   "version": "1.0.0",
-  "description": "Add another new line.",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
   },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "cssnano": "^6.1.2",
-    "parcel": "^2.12.0",
-    "postcss": "^8.5.1"
-  },
-  "keywords": [],
   "dependencies": {
+    "framer-motion": "^11.11.11",
+    "gsap": "^3.12.5",
+    "hls.js": "^1.5.15",
+    "lenis": "^1.1.14",
+    "lucide-react": "^0.454.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "@types/node": "^22.8.1",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
     "autoprefixer": "^10.4.20",
-    "tailwindcss": "^4.0.0"
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10"
   }
 }
