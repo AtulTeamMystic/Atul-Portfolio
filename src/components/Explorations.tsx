@@ -139,16 +139,16 @@ export const Explorations: React.FC = () => {
           <div className="flex items-center gap-3 mb-6">
             <div className="w-8 h-px bg-stroke" />
             <span className="text-xs text-muted uppercase tracking-[0.3em] font-semibold">
-              Explorations
+              Unity Sandbox
             </span>
           </div>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display italic text-text-primary tracking-tight font-normal leading-tight">
-            Visual <span className="font-display italic text-text-primary">playground</span>
+            Engine lab & <span className="font-display italic text-text-primary">shaders</span>
           </h2>
 
           <p className="text-sm text-muted mt-6 mb-8 font-light leading-relaxed">
-            A gallery of real-time 3D models, shader mechanics, and experimental physics pipelines. Click any asset to inspect.
+            A showcase of custom C# scripting, shader math, low-level network replication, and real-time physics optimizations in Unity. Click any asset to inspect.
           </p>
 
           <div>

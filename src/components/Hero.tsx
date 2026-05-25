@@ -102,7 +102,7 @@ export const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
 
         {/* Eyebrow */}
         <p className="blur-in text-xs text-muted uppercase tracking-[0.3em] mb-6 font-semibold md:mb-8">
-          COLLECTION '26
+          SENIOR UNITY DEVELOPER
         </p>
 
         {/* Display Name */}
@@ -124,7 +124,7 @@ export const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
 
         {/* Subtext description */}
         <p className="blur-in text-xs md:text-sm text-muted max-w-md mb-10 leading-relaxed font-light">
-          Designing seamless virtual interactions by focusing on the unique nuances which bring immersive digital systems to life.
+          Engineering high-performance multiplayer games, immersive metaverse frontends, and optimized real-time 3D systems in Unity & C#.
         </p>
 
         {/* CTA Buttons */}
