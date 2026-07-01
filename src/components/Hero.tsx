@@ -16,7 +16,7 @@ export const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
       'Unity Engineer.',
       'game architect.',
       'technical designer.',
-      'metaverse builder.',
+      'gameplay engineer.',
       'C# developer.'
     ]
     let phraseIdx = 0
@@ -119,7 +119,7 @@ export const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
           </p>
 
           {/* Main Title & Typewriter */}
-          <h1 className="hero-statement text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
+          <h1 className="hero-statement text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-heading leading-tight">
             Atul Kumar Pandey
             <span className="block text-2xl sm:text-3xl lg:text-4xl text-muted font-normal mt-2">
               I am a <span className="text-accent font-mono font-medium">{typewrittenText}</span>
@@ -128,8 +128,8 @@ export const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
           </h1>
 
           {/* Tagline */}
-          <p className="hero-tagline text-base sm:text-lg text-muted max-w-xl leading-relaxed font-light">
-            Engineering high-performance mobile games, virtual metaverse environments, and optimized real-time WebGL applications in C# and Unity.
+          <p className="hero-tagline text-base sm:text-lg text-muted max-w-xl leading-relaxed font-light font-sans">
+            Engineering high-performance mobile games, virtual multiplayer environments, and optimized real-time WebGL applications in C# and Unity.
           </p>
 
           {/* Action buttons */}
@@ -144,7 +144,7 @@ export const Hero: React.FC<HeroProps> = ({ scrollToSection }) => {
               href="https://linkedin.com/in/atul-pandey-a0ab23198"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-secondary px-6 py-3 rounded-lg font-semibold text-xs uppercase tracking-wider border border-stroke text-white hover:border-accent hover:text-accent cursor-pointer transition-colors"
+              className="btn-secondary px-6 py-3 rounded-lg font-semibold text-xs uppercase tracking-wider border border-stroke text-text-primary hover:border-accent hover:text-accent cursor-pointer transition-colors"
             >
               Visit LinkedIn
             </a>

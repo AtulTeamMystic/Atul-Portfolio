@@ -3,11 +3,9 @@ import React, { useState, useEffect } from 'react'
 interface NavbarProps {
   activeSection: string
   scrollToSection: (id: string) => void
-  theme: 'dark' | 'light'
-  toggleTheme: () => void
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ activeSection, scrollToSection, theme, toggleTheme }) => {
+export const Navbar: React.FC<NavbarProps> = ({ activeSection, scrollToSection }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -43,7 +41,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, scrollToSection, 
         {/* Brand logo/initials */}
         <button
           onClick={() => handleLinkClick('home')}
-          className="text-white hover:opacity-85 cursor-pointer font-bold tracking-tight text-lg flex items-center gap-1.5"
+          className="text-heading hover:opacity-85 cursor-pointer font-bold tracking-tight text-lg flex items-center gap-1.5"
         >
           <span className="text-accent font-mono font-medium">&lt;</span>
           ATUL PANDEY
@@ -69,14 +67,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection, scrollToSection, 
             ))}
           </div>
 
-          {/* Theme Toggle Button */}
-          <button
-            onClick={toggleTheme}
-            className="w-[34px] h-[34px] rounded border border-stroke flex items-center justify-center text-muted hover:border-accent hover:text-accent cursor-pointer transition-all duration-200"
-            aria-label="Toggle Theme"
-          >
-            <i className={theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon'}></i>
-          </button>
+
 
           {/* Mobile Hamburger Menu */}
           <button

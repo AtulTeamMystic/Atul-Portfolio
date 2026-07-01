@@ -16,10 +16,10 @@ const skillCategories: SkillCategory[] = [
     skills: ['Unity 3D / 2D', 'C#', 'C', 'Unity WebGL', 'Unity Addressables']
   },
   {
-    title: 'Multiplayer & Network',
+    title: 'Multiplayer & Netcode',
     iconClass: 'fa-network-wired',
     delay: '0.4s',
-    skills: ['Photon PUN2', 'Socket.IO', 'WebSocket', 'Agora Voice SDK']
+    skills: ['Netcode', 'Dedicated Server', 'Photon PUN 2']
   },
   {
     title: 'Backend & Auth',
@@ -69,7 +69,7 @@ export const Skills: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white flex items-center gap-2">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-heading flex items-center gap-2">
             <span className="text-accent font-mono font-medium">/</span>skill-tree
           </h2>
         </motion.div>
@@ -105,7 +105,7 @@ export const Skills: React.FC = () => {
                 <span className="w-9 h-9 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center text-accent text-sm shrink-0">
                   <i className={`fas ${category.iconClass}`}></i>
                 </span>
-                <h3 className="text-[15px] font-semibold text-white leading-none">
+                <h3 className="text-[15px] font-semibold text-heading leading-none">
                   {category.title}
                 </h3>
               </div>

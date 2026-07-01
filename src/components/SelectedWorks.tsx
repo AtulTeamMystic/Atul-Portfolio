@@ -90,7 +90,7 @@ export const SelectedWorks: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="flex items-center justify-between mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white flex items-center gap-2">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-heading flex items-center gap-2">
             <span className="text-accent font-mono font-medium">/</span>shipped-titles
           </h2>
           <a
@@ -132,7 +132,7 @@ export const SelectedWorks: React.FC = () => {
               {/* Body */}
               <div className="project-card-body p-6 flex flex-col flex-grow justify-between gap-4">
                 <div className="space-y-3">
-                  <h3 className="project-card-title text-lg font-bold text-white leading-none">
+                  <h3 className="project-card-title text-lg font-bold text-heading leading-none">
                     {project.title}
                   </h3>
                   

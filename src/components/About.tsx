@@ -14,7 +14,7 @@ export const About: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white flex items-center gap-2">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-heading flex items-center gap-2">
             <span className="text-accent font-mono font-medium">/</span>player-one
           </h2>
         </motion.div>

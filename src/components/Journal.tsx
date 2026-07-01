@@ -38,11 +38,11 @@ const experienceEntries: ExperienceEntry[] = [
     location: 'Ghaziabad, India',
     bullets: [
       'Delivered 5 client-facing Unity projects in 3 years across mobile and PC—all shipped on schedule with zero scope-blocking bugs at handoff, earning repeat client contracts.',
-      'Designed and built Classroom Metaverse: multi-platform (PC/Android/iOS) virtual classroom with Agora Voice SDK + Photon supporting 30+ concurrent users and real-time screen sharing.',
+      'Designed and built Virtual Classroom Sandbox: multi-platform (PC/Android/iOS) virtual classroom with Agora Voice SDK + Photon supporting 30+ concurrent users and real-time screen sharing.',
       'Cut API round-trips by ~40% in the 3D Instagram clone by replacing polling with Socket.IO event-driven architecture, directly reducing session load time from ~4s to ~2.5s.',
       'Took ownership of technical scoping for new feature requests—translated client briefs into sprint tasks, reducing estimation errors and preventing mid-sprint scope creep on 3 consecutive projects.'
     ],
-    tags: ['Classroom Metaverse', 'Socket.IO', 'Agora SDK', 'Optimization', 'Git Branching'],
+    tags: ['Virtual Classroom', 'Socket.IO', 'Agora SDK', 'Optimization', 'Git Branching'],
     isOrigin: true
   }
 ]
@@ -60,7 +60,7 @@ export const Journal: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white flex items-center gap-2">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-heading flex items-center gap-2">
             <span className="text-accent font-mono font-medium">/</span>campaign-log
           </h2>
         </motion.div>
@@ -112,7 +112,7 @@ export const Journal: React.FC = () => {
                     </p>
                   )}
                   
-                  <h3 className="journey-title text-lg md:text-xl font-bold text-white mb-1">
+                  <h3 className="journey-title text-lg md:text-xl font-bold text-heading mb-1">
                     {exp.company}
                   </h3>
                   

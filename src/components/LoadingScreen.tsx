@@ -85,7 +85,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
       <div className="w-full flex flex-col md:flex-row justify-between items-end gap-6 pt-4 relative z-10">
         {/* Left-aligned metadata info */}
         <div className="hidden md:block max-w-sm text-xs text-muted leading-relaxed font-light">
-          Senior Unity Developer Portfolio <span className="text-accent">•</span> Crafting Immersive Real-time 3D Systems, Games & Metaverse Frontends.
+          Senior Unity Developer Portfolio <span className="text-accent">•</span> Crafting Immersive Real-time 3D Systems, Games & Multiplayer Frontends.
         </div>
 
         {/* Right-aligned Counter */}

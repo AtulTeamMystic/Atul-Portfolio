@@ -6,7 +6,6 @@ import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
 import { About } from './components/About'
 import { SelectedWorks } from './components/SelectedWorks'
-import { Explorations } from './components/Explorations'
 import { Skills } from './components/Skills'
 import { Journal } from './components/Journal'
 import { Education } from './components/Education'
@@ -16,33 +15,7 @@ const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [activeSection, setActiveSection] = useState('home')
   const [toastMessage, setToastMessage] = useState<string | null>(null)
-  const [theme, setTheme] = useState<'dark' | 'light'>('dark')
-  
   const lenisRef = useRef<Lenis | null>(null)
-
-  // Initialize theme from local storage
-  useEffect(() => {
-    const storedTheme = localStorage.getItem('theme') as 'dark' | 'light' | null
-    if (storedTheme) {
-      setTheme(storedTheme)
-      if (storedTheme === 'light') {
-        document.documentElement.classList.add('light-mode')
-      } else {
-        document.documentElement.classList.remove('light-mode')
-      }
-    }
-  }, [])
-
-  const toggleTheme = () => {
-    const nextTheme = theme === 'dark' ? 'light' : 'dark'
-    setTheme(nextTheme)
-    localStorage.setItem('theme', nextTheme)
-    if (nextTheme === 'light') {
-      document.documentElement.classList.add('light-mode')
-    } else {
-      document.documentElement.classList.remove('light-mode')
-    }
-  }
 
   // Smooth Inertial Scrolling (Lenis)
   useEffect(() => {
@@ -180,7 +153,7 @@ const App: React.FC = () => {
       ) : (
         <>
           {/* Floating Navigation Bar */}
-          <Navbar activeSection={activeSection} scrollToSection={scrollToSection} theme={theme} toggleTheme={toggleTheme} />
+          <Navbar activeSection={activeSection} scrollToSection={scrollToSection} />
 
           {/* Hero Section */}
           <Hero scrollToSection={scrollToSection} />
@@ -192,8 +165,7 @@ const App: React.FC = () => {
             {/* Selected Works / Bento Grid */}
             <SelectedWorks />
 
-            {/* Explorations / Parallax Sandbox */}
-            <Explorations />
+
 
             {/* Skills / Skill Tree */}
             <Skills />

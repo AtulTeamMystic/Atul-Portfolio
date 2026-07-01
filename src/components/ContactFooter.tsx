@@ -21,7 +21,7 @@ export const ContactFooter: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white flex items-center gap-2">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-heading flex items-center gap-2">
             <span className="text-accent font-mono font-medium">/</span>co-op-invite
           </h2>
         </motion.div>
@@ -30,11 +30,11 @@ export const ContactFooter: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mb-16">
           {/* Left Column */}
           <div className="space-y-6">
-            <h3 className="text-xl font-bold text-white">
+            <h3 className="text-xl font-bold text-heading">
               Slot open for a new quest.
             </h3>
             <p className="text-text-primary text-sm md:text-base leading-relaxed font-light font-sans">
-              Looking to collaborate on high-performance Unity mobile builds, virtual multiplayer metaverses, or optimized WebGL setups? Reach out via email or let's connect on social media. I am open to co-op contracts and senior development opportunities.
+              Looking to collaborate on high-performance Unity mobile builds, virtual multiplayer spaces, or optimized WebGL setups? Reach out via email or let's connect on social media. I am open to co-op contracts and senior development opportunities.
             </p>
           </div>
 

@@ -44,7 +44,7 @@ export const Education: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white flex items-center gap-2">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-heading flex items-center gap-2">
             <span className="text-[#7b8fff] font-mono font-medium">/</span>skill-school
           </h2>
         </motion.div>
@@ -88,7 +88,7 @@ export const Education: React.FC = () => {
                     {edu.duration}
                   </div>
                   
-                  <h3 className="journey-title text-lg md:text-xl font-bold text-white mb-1">
+                  <h3 className="journey-title text-lg md:text-xl font-bold text-heading mb-1">
                     {edu.school}
                   </h3>
                   
