@@ -1,121 +1,116 @@
-import React, { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+import React, { useState, useEffect } from 'react'
 
 interface NavbarProps {
   activeSection: string
   scrollToSection: (id: string) => void
+  theme: 'dark' | 'light'
+  toggleTheme: () => void
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ activeSection, scrollToSection }) => {
+export const Navbar: React.FC<NavbarProps> = ({ activeSection, scrollToSection, theme, toggleTheme }) => {
+  const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const [logoHovered, setLogoHovered] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 100)
+      setScrolled(window.scrollY > 60)
     }
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const navLinks = [
+    { id: 'about', label: 'About' },
+    { id: 'work', label: 'Projects' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'experience', label: 'Journey' },
+    { id: 'contact', label: 'Contact' }
+  ]
+
+  const handleLinkClick = (id: string) => {
+    scrollToSection(id)
+    setIsOpen(false)
+  }
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 md:pt-6 px-4 pointer-events-none">
-      <motion.div
-        initial={{ y: -30, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1], delay: 0.1 }}
-        className={`inline-flex items-center rounded-full backdrop-blur-md border border-white/10 bg-surface px-2.5 py-1.5 transition-all duration-300 pointer-events-auto ${
-          scrolled ? 'shadow-lg shadow-black/40 bg-surface/90 border-white/15' : 'shadow-sm shadow-black/10'
-        }`}
-      >
-        {/* 1. Logo */}
+    <nav
+      className={`fixed top-0 left-0 right-0 z-[1000] border-b border-stroke bg-bg/85 backdrop-blur-md transition-all duration-300 ${
+        scrolled ? 'shadow-2xl shadow-black/30 border-b bg-bg/95' : ''
+      }`}
+    >
+      <div className="max-w-[1100px] mx-auto px-6 h-[60px] flex items-center justify-between">
+        
+        {/* Brand logo/initials */}
         <button
-          onClick={() => scrollToSection('home')}
-          onMouseEnter={() => setLogoHovered(true)}
-          onMouseLeave={() => setLogoHovered(false)}
-          className="relative w-8 h-8 rounded-full flex items-center justify-center cursor-pointer transition-transform duration-300 hover:scale-110 active:scale-95"
+          onClick={() => handleLinkClick('home')}
+          className="text-white hover:opacity-85 cursor-pointer font-bold tracking-tight text-lg flex items-center gap-1.5"
         >
-          {/* Animated Outer Gradient Ring */}
-          <div
-            className={`absolute inset-0 rounded-full transition-transform duration-700 ease-in-out ${
-              logoHovered ? 'rotate-180 scale-105' : 'rotate-0'
-            }`}
-            style={{
-              background: 'linear-gradient(90deg, #89AACC 0%, #4E85BF 100%)',
-              padding: '1.5px',
-            }}
-          >
-            <div className="w-full h-full rounded-full bg-bg" />
-          </div>
-          {/* Initials Text */}
-          <span className="relative z-10 font-display italic text-[12px] font-bold text-text-primary tracking-tighter">
-            AP
-          </span>
+          <span className="text-accent font-mono font-medium">&lt;</span>
+          ATUL PANDEY
+          <span className="text-accent font-mono font-medium">/&gt;</span>
         </button>
 
-        {/* Vertical Divider */}
-        <div className="hidden sm:block w-px h-4 bg-stroke mx-2" />
+        {/* Desktop Links & Theme Toggle */}
+        <div className="flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-6 nav-links font-medium">
+            {navLinks.map((link) => (
+              <button
+                key={link.id}
+                onClick={() => handleLinkClick(link.id)}
+                className={`text-[14px] cursor-pointer hover:text-accent pb-0.5 tracking-wide transition-colors ${
+                  activeSection === link.id || 
+                  (link.id === 'experience' && activeSection === 'education')
+                    ? 'text-accent font-semibold active'
+                    : 'text-muted'
+                }`}
+              >
+                {link.label}
+              </button>
+            ))}
+          </div>
 
-        {/* 3. Navigation Links */}
-        <div className="flex items-center gap-1">
+          {/* Theme Toggle Button */}
           <button
-            onClick={() => scrollToSection('home')}
-            className={`text-xs sm:text-sm rounded-full px-3.5 py-1.5 font-medium transition-all cursor-pointer ${
-              activeSection === 'home'
-                ? 'text-text-primary bg-stroke/60 font-semibold'
-                : 'text-muted hover:text-text-primary hover:bg-stroke/30'
-            }`}
+            onClick={toggleTheme}
+            className="w-[34px] h-[34px] rounded border border-stroke flex items-center justify-center text-muted hover:border-accent hover:text-accent cursor-pointer transition-all duration-200"
+            aria-label="Toggle Theme"
           >
-            Home
-          </button>
-          
-          <button
-            onClick={() => scrollToSection('work')}
-            className={`text-xs sm:text-sm rounded-full px-3.5 py-1.5 font-medium transition-all cursor-pointer ${
-              activeSection === 'work'
-                ? 'text-text-primary bg-stroke/60 font-semibold'
-                : 'text-muted hover:text-text-primary hover:bg-stroke/30'
-            }`}
-          >
-            Work
+            <i className={theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon'}></i>
           </button>
 
+          {/* Mobile Hamburger Menu */}
           <button
-            onClick={() => scrollToSection('experience')}
-            className={`text-xs sm:text-sm rounded-full px-3.5 py-1.5 font-medium transition-all cursor-pointer ${
-              activeSection === 'experience'
-                ? 'text-text-primary bg-stroke/60 font-semibold'
-                : 'text-muted hover:text-text-primary hover:bg-stroke/30'
-            }`}
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden w-[34px] h-[34px] rounded border border-stroke flex items-center justify-center text-muted hover:border-accent hover:text-accent cursor-pointer transition-all duration-200"
           >
-            Resume
+            <i className={`fas ${isOpen ? 'fa-xmark' : 'fa-bars'}`}></i>
           </button>
         </div>
 
-        {/* Vertical Divider */}
-        <div className="w-px h-4 bg-stroke mx-2" />
+      </div>
 
-        {/* 5. "Say hi" CTA Button */}
-        <a
-          href="mailto:atul.pandey.local@gmail.com"
-          className="relative group text-xs sm:text-sm rounded-full px-4 py-1.5 font-medium transition-all cursor-pointer overflow-visible text-text-primary flex items-center gap-1"
-        >
-          {/* Gradient Reveal Behind */}
-          <span
-            className="absolute inset-[-1.5px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-            style={{
-              background: 'linear-gradient(90deg, #89AACC 0%, #4E85BF 100%)',
-              padding: '1.5px',
-            }}
+      {/* Mobile Nav Collapsible Drawer */}
+      <div
+        className={`md:hidden flex flex-col px-6 border-t border-stroke bg-bg gap-3 transition-all duration-300 ease-in-out ${
+          isOpen ? 'max-h-[300px] py-4 opacity-100' : 'max-h-0 py-0 opacity-0 overflow-hidden'
+        }`}
+      >
+        {navLinks.map((link) => (
+          <button
+            key={link.id}
+            onClick={() => handleLinkClick(link.id)}
+            className={`text-left text-[15px] py-1 cursor-pointer font-medium transition-colors ${
+              activeSection === link.id ||
+              (link.id === 'experience' && activeSection === 'education')
+                ? 'text-accent font-semibold'
+                : 'text-muted hover:text-accent'
+            }`}
           >
-            <span className="block w-full h-full rounded-full bg-surface" />
-          </span>
-          
-          <span className="relative z-10 flex items-center gap-1 font-semibold group-hover:text-text-primary">
-            Say hi <span className="text-[10px] transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
-          </span>
-        </a>
-      </motion.div>
+            {link.label}
+          </button>
+        ))}
+      </div>
     </nav>
   )
 }
+

@@ -4,20 +4,47 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { LoadingScreen } from './components/LoadingScreen'
 import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
+import { About } from './components/About'
 import { SelectedWorks } from './components/SelectedWorks'
-import { Journal } from './components/Journal'
 import { Explorations } from './components/Explorations'
-import { Stats } from './components/Stats'
+import { Skills } from './components/Skills'
+import { Journal } from './components/Journal'
+import { Education } from './components/Education'
 import { ContactFooter } from './components/ContactFooter'
 
 const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [activeSection, setActiveSection] = useState('home')
   const [toastMessage, setToastMessage] = useState<string | null>(null)
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark')
   
   const lenisRef = useRef<Lenis | null>(null)
 
-  // Butter-smooth Inertial Scrolling (Lenis)
+  // Initialize theme from local storage
+  useEffect(() => {
+    const storedTheme = localStorage.getItem('theme') as 'dark' | 'light' | null
+    if (storedTheme) {
+      setTheme(storedTheme)
+      if (storedTheme === 'light') {
+        document.documentElement.classList.add('light-mode')
+      } else {
+        document.documentElement.classList.remove('light-mode')
+      }
+    }
+  }, [])
+
+  const toggleTheme = () => {
+    const nextTheme = theme === 'dark' ? 'light' : 'dark'
+    setTheme(nextTheme)
+    localStorage.setItem('theme', nextTheme)
+    if (nextTheme === 'light') {
+      document.documentElement.classList.add('light-mode')
+    } else {
+      document.documentElement.classList.remove('light-mode')
+    }
+  }
+
+  // Smooth Inertial Scrolling (Lenis)
   useEffect(() => {
     if (isLoading) return
 
@@ -40,6 +67,30 @@ const App: React.FC = () => {
       lenis.destroy()
       lenisRef.current = null
     }
+  }, [isLoading])
+
+  // Mouse cursor glow tracking (GPU-composited via requestAnimationFrame)
+  useEffect(() => {
+    if (isLoading) return
+
+    let rafPending = false
+    let mx = -999
+    let my = -999
+
+    const handleMouseMove = (e: MouseEvent) => {
+      mx = e.clientX
+      my = e.clientY
+      if (rafPending) return
+      rafPending = true
+      requestAnimationFrame(() => {
+        document.documentElement.style.setProperty('--mouse-x', `${mx}px`)
+        document.documentElement.style.setProperty('--mouse-y', `${my}px`)
+        rafPending = false
+      })
+    }
+
+    window.addEventListener('mousemove', handleMouseMove, { passive: true })
+    return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [isLoading])
 
   // Global click interceptor for mailto: links to copy to clipboard & show Toast
@@ -76,13 +127,25 @@ const App: React.FC = () => {
       const scrollPosition = window.scrollY + window.innerHeight / 3
 
       const homeSec = document.getElementById('home')
+      const aboutSec = document.getElementById('about')
       const workSec = document.getElementById('work')
+      const skillsSec = document.getElementById('skills')
       const expSec = document.getElementById('experience')
+      const eduSec = document.getElementById('education')
+      const contactSec = document.getElementById('contact')
 
-      if (expSec && scrollPosition >= expSec.offsetTop) {
+      if (contactSec && scrollPosition >= contactSec.offsetTop) {
+        setActiveSection('contact')
+      } else if (eduSec && scrollPosition >= eduSec.offsetTop) {
+        setActiveSection('education')
+      } else if (expSec && scrollPosition >= expSec.offsetTop) {
         setActiveSection('experience')
+      } else if (skillsSec && scrollPosition >= skillsSec.offsetTop) {
+        setActiveSection('skills')
       } else if (workSec && scrollPosition >= workSec.offsetTop) {
         setActiveSection('work')
+      } else if (aboutSec && scrollPosition >= aboutSec.offsetTop) {
+        setActiveSection('about')
       } else if (homeSec) {
         setActiveSection('home')
       }
@@ -111,32 +174,38 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="relative min-h-screen bg-bg text-text-primary overflow-x-hidden selection:bg-[#89AACC] selection:text-bg">
+    <div className="relative min-h-screen bg-bg text-text-primary overflow-x-hidden selection:bg-accent/30 selection:text-white">
       {isLoading ? (
         <LoadingScreen onComplete={() => setIsLoading(false)} />
       ) : (
         <>
-          {/* Floating Navigation pill */}
-          <Navbar activeSection={activeSection} scrollToSection={scrollToSection} />
+          {/* Floating Navigation Bar */}
+          <Navbar activeSection={activeSection} scrollToSection={scrollToSection} theme={theme} toggleTheme={toggleTheme} />
 
-          {/* Section 2: Hero */}
+          {/* Hero Section */}
           <Hero scrollToSection={scrollToSection} />
 
           <main className="relative z-10 w-full">
-            {/* Section 3: Selected Works (Bento Grid) */}
+            {/* About / Player One */}
+            <About />
+
+            {/* Selected Works / Bento Grid */}
             <SelectedWorks />
 
-            {/* Section 4: Journal (Experience logs & timeline) */}
-            <Journal />
-
-            {/* Section 5: Explorations (Scroll-driven GSAP Parallax Gallery) */}
+            {/* Explorations / Parallax Sandbox */}
             <Explorations />
 
-            {/* Section 6: Stats Achievements */}
-            <Stats />
+            {/* Skills / Skill Tree */}
+            <Skills />
+
+            {/* Experience / Campaign Log */}
+            <Journal />
+
+            {/* Education / Skill School */}
+            <Education />
           </main>
 
-          {/* Section 7: Contact / Footer */}
+          {/* Contact / Footer */}
           <ContactFooter />
 
           {/* Floating Glassmorphic Toast Notification */}
@@ -146,11 +215,11 @@ const App: React.FC = () => {
                 initial={{ opacity: 0, y: 50, scale: 0.9, x: '-50%' }}
                 animate={{ opacity: 1, y: 0, scale: 1, x: '-50%' }}
                 exit={{ opacity: 0, y: 20, scale: 0.9, x: '-50%' }}
-                className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[99999] px-6 py-3.5 bg-surface/85 backdrop-blur-md border border-[#89AACC]/30 text-text-primary rounded-full shadow-2xl flex items-center gap-3 text-xs md:text-sm font-semibold select-none pointer-events-none"
+                className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[99999] px-6 py-3.5 bg-surface/85 backdrop-blur-md border border-accent/20 text-text-primary rounded-full shadow-2xl flex items-center gap-3 text-xs md:text-sm font-semibold select-none pointer-events-none"
               >
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
                 </span>
                 <span>{toastMessage}</span>
               </motion.div>

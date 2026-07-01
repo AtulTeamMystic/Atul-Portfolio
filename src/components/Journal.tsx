@@ -1,171 +1,159 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
-interface Entry {
-  id: string
-  title: string
-  subtitle: string
-  description: string
-  image: string
+interface ExperienceEntry {
+  company: string
+  companyUrl?: string
+  role: string
+  duration: string
   timeline: string
+  location: string
+  bullets: string[]
   tags: string[]
+  isCurrent?: boolean
+  isOrigin?: boolean
 }
 
-const entries: Entry[] = [
+const experienceEntries: ExperienceEntry[] = [
   {
-    id: 'tec-ventures',
-    title: 'Senior Unity Developer at Tec Ventures',
-    subtitle: 'Sole engineer shipping Mystic Motors to App Store and Google Play.',
-    description: 'Managed complete build pipeline (Android + iOS), integrated Google/Apple SSO, Firebase IAP leadboards, and FCM push notifications. Achieved 1000+ installs with 0 critical crashes.',
-    image: './images/mystic-motors.jpeg',
-    timeline: 'Apr 2024 – Present · 5 min read',
-    tags: ['Mobile Development', 'IAP Stack', 'CI/CD']
+    company: 'Tec Ventures',
+    role: 'Senior Unity Developer',
+    duration: 'Apr 2024 — Present',
+    timeline: 'Currently Working',
+    location: 'Remote',
+    bullets: [
+      'Sole engineer on Mystic Motors—shipped end-to-end to Google Play & App Store; integrated Google/Apple/Guest Login, Firebase IAP, and Firestore leaderboards, achieving a live dual-platform monetised product within 4 months.',
+      'Owned full mobile build pipeline (Android + iOS): CI builds, Firebase Crashlytics monitoring, and staged rollout—zero critical post-launch crashes across initial 1,000+ installs.',
+      'Architected spell-based multiplayer combat loop with Photon PUN2; optimised network sync intervals, cutting observable input lag by ~35% versus naive approach.',
+      'Mentored 1 junior developer on Unity best practices, code review standards, and Git branching strategy—reduced rework cycles by 50% within 2 sprints.'
+    ],
+    tags: ['Mobile Development', 'IAP Stack', 'CI/CD Pipeline', 'Photon PUN2', 'Firebase'],
+    isCurrent: true
   },
   {
-    id: 'classroom-metaverse',
-    title: 'Architecting Classroom Metaverse',
-    subtitle: 'Multi-platform virtual classroom supporting 30+ concurrent users.',
-    description: 'Designed Agora Voice SDK & Photon PUN2 networking loops, allowing real-time screen sharing, state synchronizations, and low latency user tracking across WebGL/iOS/Android.',
-    image: './images/classroom.jpg',
-    timeline: 'Mar 2023 · 4 min read',
-    tags: ['Photon PUN2', 'Agora Voice SDK', 'Metaverse']
-  },
-  {
-    id: 'instagram-clone',
-    title: 'Optimizing 3D Social Engine WebGL',
-    subtitle: 'Replaced HTTP polling with Socket.IO event-driven structures.',
-    description: 'Cut API round-trips by ~40%, reducing WebGL session load times from 4s to 2.5s. Scoped sprint schedules and feature specs directly preventing scope creep.',
-    image: './images/3d-instagram.jpg',
-    timeline: 'Nov 2022 · 3 min read',
-    tags: ['Socket.IO', 'Performance Tuning', 'WebGL']
-  },
-  {
-    id: 'team-mentorship',
-    title: 'Mentoring and Git Branching Strategies',
-    subtitle: 'Reduced sprint rework cycles by 50% across two developmental sprints.',
-    description: 'Established Unity code review best practices, clean C# patterns, and automated branching strategies. Guided and mentored junior game engineers.',
-    image: './images/coder.svg',
-    timeline: 'Jan 2024 · 3 min read',
-    tags: ['Leadership', 'Git Architecture', 'Code Review']
+    company: 'Abhiwan Technology Pvt. Ltd.',
+    role: 'Unity Developer → Mid-Level Unity Developer',
+    duration: 'Mar 2021 — Mar 2024',
+    timeline: '3 years',
+    location: 'Ghaziabad, India',
+    bullets: [
+      'Delivered 5 client-facing Unity projects in 3 years across mobile and PC—all shipped on schedule with zero scope-blocking bugs at handoff, earning repeat client contracts.',
+      'Designed and built Classroom Metaverse: multi-platform (PC/Android/iOS) virtual classroom with Agora Voice SDK + Photon supporting 30+ concurrent users and real-time screen sharing.',
+      'Cut API round-trips by ~40% in the 3D Instagram clone by replacing polling with Socket.IO event-driven architecture, directly reducing session load time from ~4s to ~2.5s.',
+      'Took ownership of technical scoping for new feature requests—translated client briefs into sprint tasks, reducing estimation errors and preventing mid-sprint scope creep on 3 consecutive projects.'
+    ],
+    tags: ['Classroom Metaverse', 'Socket.IO', 'Agora SDK', 'Optimization', 'Git Branching'],
+    isOrigin: true
   }
 ]
 
 export const Journal: React.FC = () => {
   return (
-    <section id="experience" className="bg-bg py-16 md:py-24 border-t border-stroke/30">
-      <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
+    <section id="experience" className="relative py-20 md:py-28 border-t border-stroke/30 bg-bg z-10">
+      <div className="max-w-[1100px] mx-auto px-6 md:px-10 lg:px-16">
         
-        {/* Section Header */}
+        {/* Section Heading */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
-          className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12 md:mb-16"
+          transition={{ duration: 0.6 }}
+          className="mb-12"
         >
-          <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-px bg-stroke" />
-              <span className="text-xs text-muted uppercase tracking-[0.3em] font-semibold">
-                Journal
-              </span>
-            </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display italic text-text-primary tracking-tight font-normal">
-              Experience <span className="font-display italic text-text-primary">logs</span>
-            </h2>
-            <p className="text-sm md:text-base text-muted max-w-md mt-4 font-light leading-relaxed">
-              A historical timeline of my engineering achievements, team mentorship milestones, and performance updates.
-            </p>
-          </div>
-
-          {/* Download CV button */}
-          <a
-            href="Atul_Pandey_CV.pdf"
-            target="_blank"
-            className="relative group h-11 inline-flex items-center justify-center rounded-full px-6 text-xs font-semibold uppercase tracking-wider text-text-primary border border-stroke cursor-pointer overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95"
-          >
-            <div className="absolute inset-0 w-full h-full rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none p-[1.5px] accent-gradient">
-              <div className="w-full h-full bg-bg rounded-full" />
-            </div>
-            <span className="relative z-10 flex items-center gap-2">
-              Download CV <span className="text-[10px]">↗</span>
-            </span>
-          </a>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white flex items-center gap-2">
+            <span className="text-accent font-mono font-medium">/</span>campaign-log
+          </h2>
         </motion.div>
 
-        {/* Experience Pill Entries */}
-        <div className="space-y-4 max-w-4xl mx-auto">
-          {entries.map((entry, idx) => (
+        {/* Timeline Grid (Vertical timeline with green spine) */}
+        <div className="journey relative pl-10 sm:pl-14">
+          
+          {/* Vertical spine (Green gradient) */}
+          <div className="absolute left-[19px] sm:left-[27px] top-0 bottom-12 w-[2px] bg-gradient-to-b from-accent via-accent/35 to-accent/05 rounded-full pointer-events-none" />
+
+          {experienceEntries.map((exp, index) => (
             <motion.div
-              key={entry.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              key={exp.company}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: idx * 0.15 }}
-              className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 p-6 md:p-8 bg-surface/20 hover:bg-surface border border-stroke/70 rounded-[2.5rem] md:rounded-full transition-all duration-500 group shadow-md hover:shadow-lg shadow-black/10"
+              transition={{ duration: 0.8, delay: index * 0.15 }}
+              className="journey-node relative mb-8 flex group"
             >
-              <div className="flex items-center gap-5">
-                {/* Milestone Image Thumbnail */}
-                <div className="w-12 h-12 md:w-16 md:h-16 rounded-full overflow-hidden shrink-0 border border-stroke group-hover:scale-105 transition-transform duration-500">
-                  <img
-                    src={entry.image}
-                    alt={entry.title}
-                    className="w-full h-full object-cover select-none pointer-events-none"
-                  />
+              {/* Spine dot with briefcase icon */}
+              <div className="absolute left-[-40px] sm:left-[-54px] top-0 w-8 sm:w-10 flex justify-center">
+                <div className={`journey-dot w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-surface border-2 border-accent flex items-center justify-center text-xs sm:text-sm text-accent z-10 transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_0_6px_rgba(0,255,136,0.12),0_0_20px_rgba(0,255,136,0.2)] ${
+                  exp.isCurrent ? 'bg-accent text-[#000] shadow-[0_0_0_6px_rgba(0,255,136,0.12),0_0_20px_rgba(0,255,136,0.25)]' : ''
+                }`}>
+                  <i className="fas fa-briefcase"></i>
                 </div>
+              </div>
 
-                <div className="space-y-1">
-                  <span className="text-[10px] text-muted font-medium md:hidden block">
-                    {entry.timeline}
+              {/* Content Card */}
+              <div className="flex-1 pb-4">
+                {exp.isCurrent && (
+                  <span className="journey-badge current inline-block text-[10px] font-bold tracking-wider uppercase rounded px-2.5 py-0.5 mb-2 bg-accent/10 text-accent border border-accent/30">
+                    Current Quest
                   </span>
-                  <h3 className="text-md md:text-lg font-semibold text-text-primary group-hover:text-[#89AACC] transition-colors leading-tight">
-                    {entry.title}
+                )}
+                {exp.isOrigin && (
+                  <span className="journey-badge origin inline-block text-[10px] font-bold tracking-wider uppercase rounded px-2.5 py-0.5 mb-2 bg-[#ff7a57]/10 text-[#ff7a57] border border-[#ff7a57]/30">
+                    Spawn Point
+                  </span>
+                )}
+
+                <div className="journey-card bg-surface border border-stroke rounded-xl p-5 transition-all duration-300 group-hover:border-accent/22 group-hover:shadow-[0_6px_28px_rgba(0,255,136,0.07)] group-hover:translate-x-1">
+                  <div className="journey-year text-[11px] font-bold tracking-wider uppercase text-accent mb-1.5 opacity-80">
+                    {exp.duration}
+                  </div>
+                  {exp.timeline && (
+                    <p className="journey-duration text-xs text-muted mb-2 font-mono">
+                      {exp.timeline}
+                    </p>
+                  )}
+                  
+                  <h3 className="journey-title text-lg md:text-xl font-bold text-white mb-1">
+                    {exp.company}
                   </h3>
-                  <p className="text-xs text-muted max-w-xl font-light leading-relaxed">
-                    {entry.subtitle}
+                  
+                  <p className="journey-role text-sm md:text-base text-muted mb-2">
+                    {exp.role}
                   </p>
+
+                  <p className="journey-loc text-xs text-muted/75 mb-4 flex items-center gap-1.5">
+                    <i className="fas fa-map-marker-alt text-accent text-[10px]"></i> {exp.location}
+                  </p>
+
+                  {/* Bullet points description */}
+                  <ul className="list-disc pl-4 mb-4 text-xs md:text-sm text-text-primary/90 space-y-2 leading-relaxed font-light">
+                    {exp.bullets.map((bullet, idx) => (
+                      <li key={idx}>{bullet}</li>
+                    ))}
+                  </ul>
+
+                  <div className="journey-tags flex flex-wrap gap-1.5">
+                    {exp.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="tag text-[11px] bg-surface2 border border-stroke text-muted px-2.5 py-0.5 rounded"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-
-              {/* Right side Metadata Timeline (Hidden on small, shown on md+) */}
-              <div className="hidden md:flex flex-col items-end gap-2 text-right shrink-0">
-                <span className="text-xs text-muted font-medium bg-[#131313] px-3 py-1 rounded-full border border-stroke">
-                  {entry.timeline}
-                </span>
-                
-                <div className="flex gap-1.5 pt-1">
-                  {entry.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-[9px] font-semibold text-[#89AACC] uppercase tracking-wider"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Detail block displayed on small screens */}
-              <div className="md:hidden block w-full pt-2 border-t border-stroke/50">
-                <p className="text-[11px] text-muted/80 leading-relaxed font-light mb-3">
-                  {entry.description}
-                </p>
-                <div className="flex flex-wrap gap-1">
-                  {entry.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-[8px] font-bold text-[#89AACC] border border-[#89AACC]/20 px-2 py-0.5 rounded-full"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Expand/Hover reveal details on larger screen */}
-              <div className="hidden group-hover:block transition-all absolute" />
             </motion.div>
           ))}
+
+          {/* End Cap */}
+          <div className="journey-end flex items-center gap-3 mt-[-5px]">
+            <div className="journey-end-dot w-3.5 h-3.5 rounded-full border-2 border-accent/25 bg-bg shrink-0 relative left-[-33px] sm:left-[-41px]" />
+            <span className="text-xs text-muted font-mono tracking-wider ml-[-20px] sm:ml-[-26px]">
+              FIRST SPAWN POINT
+            </span>
+          </div>
+
         </div>
 
       </div>

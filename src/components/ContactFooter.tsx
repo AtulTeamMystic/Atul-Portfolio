@@ -1,174 +1,133 @@
-import React, { useEffect, useRef } from 'react'
-import Hls from 'hls.js'
-import gsap from 'gsap'
+import React from 'react'
+import { motion } from 'framer-motion'
 
 export const ContactFooter: React.FC = () => {
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const marqueeRef = useRef<HTMLDivElement>(null)
-
-  // HLS Video Stream initialization (Flipped)
-  useEffect(() => {
-    const video = videoRef.current
-    if (!video) return
-
-    const hlsSource = "https://stream.mux.com/Aa02T7oM1wH5Mk5EEVDYhbZ1ChcdhRsS2m1NYyx4Ua1g.m3u8"
-
-    let hls: Hls | null = null
-
-    if (Hls.isSupported()) {
-      hls = new Hls({
-        maxMaxBufferLength: 10,
-        enableWorker: true,
-      })
-      hls.loadSource(hlsSource)
-      hls.attachMedia(video)
-      hls.on(Hls.Events.MANIFEST_PARSED, () => {
-        video.play().catch((err) => console.log("Auto-play blocked:", err))
-      })
-    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-      video.src = hlsSource
-      video.addEventListener('loadedmetadata', () => {
-        video.play().catch((err) => console.log("Auto-play blocked:", err))
-      })
-    }
-
-    return () => {
-      if (hls) {
-        hls.destroy()
-      }
-    }
-  }, [])
-
-  // GSAP Infinite Horizontal Marquee
-  useEffect(() => {
-    const marquee = marqueeRef.current
-    if (!marquee) return
-
-    const ctx = gsap.context(() => {
-      gsap.to(marquee, {
-        xPercent: -50,
-        ease: "none",
-        duration: 38,
-        repeat: -1,
-      })
-    })
-
-    return () => ctx.revert()
-  }, [])
-
-  const textToRepeat = "BUILDING THE FUTURE • ENGINEERED IN DEEP SPACE • "
-  const repeatedText = Array(12).fill(textToRepeat).join("")
+  const currentYear = new Date().getFullYear()
+  const marqueeText = "BUILDING THE FUTURE • ENGINEERED IN DEEP SPACE • "
+  const repeatedMarquee = Array(12).fill(marqueeText).join("")
 
   return (
-    <section
-      id="contact"
-      className="relative bg-bg pt-20 md:pt-28 pb-12 overflow-hidden border-t border-stroke/30 flex flex-col justify-between min-h-[85vh]"
-    >
-      {/* Background Video (Flipped Vertically) */}
-      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
-        <video
-          ref={videoRef}
-          className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto object-cover -translate-x-1/2 -translate-y-1/2 scale-y-[-1] pointer-events-none opacity-45"
-          muted
-          loop
-          playsInline
-          autoPlay
-        />
-        {/* Contrast Overlays */}
-        <div className="absolute inset-0 bg-black/65 z-1" />
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-bg to-transparent z-2" />
-      </div>
+    <footer id="contact" className="relative pt-20 pb-12 bg-surface border-t border-stroke z-10 font-mono">
+      {/* Background dot grid pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(0,255,136,0.02)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
 
-      {/* 1. GSAP Continuous Marquee (Layer 10) */}
-      <div className="relative z-10 w-full overflow-hidden border-y border-stroke/40 py-5 bg-bg/40 backdrop-blur-sm select-none">
-        <div className="flex whitespace-nowrap overflow-visible">
-          <div
-            ref={marqueeRef}
-            className="inline-block text-xs font-semibold uppercase tracking-[0.25em] text-text-primary/45 font-body"
-          >
-            {repeatedText}
-          </div>
-        </div>
-      </div>
-
-      {/* 2. Primary Call To Action Panel (Center) */}
-      <div className="relative z-10 text-center px-6 my-auto flex flex-col items-center gap-6 max-w-2xl mx-auto py-12">
+      <div className="max-w-[1100px] mx-auto px-6 md:px-10 lg:px-16 relative z-10">
         
-        <h2 className="text-5xl md:text-7xl font-display italic text-text-primary tracking-tight font-normal leading-[0.95]">
-          Let's build <span className="font-display italic text-text-primary">together</span>
-        </h2>
-
-        <p className="text-xs md:text-sm text-muted font-light leading-relaxed max-w-md mb-4">
-          Looking to collaborate on standard Unity platforms, custom WebGL configurators, or multiplayer architectures? Drop an email or connect on LinkedIn.
-        </p>
-
-        {/* Dynamic Email Button with outer hover gradient border ring */}
-        <a
-          href="mailto:atul.pandey.local@gmail.com"
-          className="relative group h-14 inline-flex items-center justify-center rounded-full px-10 text-xs font-semibold uppercase tracking-widest text-text-primary border border-stroke cursor-pointer overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-black/25"
+        {/* Section Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="mb-12"
         >
-          <div className="absolute inset-0 w-full h-full rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none p-[1.5px] accent-gradient">
-            <div className="w-full h-full bg-bg rounded-full" />
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white flex items-center gap-2">
+            <span className="text-accent font-mono font-medium">/</span>co-op-invite
+          </h2>
+        </motion.div>
+
+        {/* Contact Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mb-16">
+          {/* Left Column */}
+          <div className="space-y-6">
+            <h3 className="text-xl font-bold text-white">
+              Slot open for a new quest.
+            </h3>
+            <p className="text-text-primary text-sm md:text-base leading-relaxed font-light font-sans">
+              Looking to collaborate on high-performance Unity mobile builds, virtual multiplayer metaverses, or optimized WebGL setups? Reach out via email or let's connect on social media. I am open to co-op contracts and senior development opportunities.
+            </p>
           </div>
-          <span className="relative z-10 flex items-center gap-2">
-            atul.pandey.local@gmail.com <span className="text-[10px] transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
-          </span>
-        </a>
+
+          {/* Right Column */}
+          <div className="space-y-6 flex flex-col md:items-end">
+            
+            {/* Availability Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent/25 bg-accent/8 text-accent text-xs font-semibold select-none shadow-md">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+              </span>
+              READY TO SPAWN IN
+            </div>
+
+            {/* Contact Links Grid */}
+            <div className="space-y-3.5 w-full max-w-[320px]">
+              <a
+                href="mailto:atul.pandey.local@gmail.com"
+                className="flex items-center gap-3 text-sm text-text-primary hover:text-accent transition-colors p-3 rounded-lg border border-stroke bg-bg/50 hover:border-accent/25"
+              >
+                <i className="fas fa-envelope text-accent w-5 text-center text-base"></i>
+                <span className="truncate font-sans font-medium">atul.pandey.local@gmail.com</span>
+              </a>
+
+              <a
+                href="https://linkedin.com/in/atul-pandey-a0ab23198"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-sm text-text-primary hover:text-accent transition-colors p-3 rounded-lg border border-stroke bg-bg/50 hover:border-accent/25"
+              >
+                <i className="fab fa-linkedin text-accent w-5 text-center text-base"></i>
+                <span className="truncate font-sans font-medium">linkedin.com/in/atul-pandey</span>
+              </a>
+
+              <a
+                href="https://github.com/atul-pandey-a0ab23198"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-sm text-text-primary hover:text-accent transition-colors p-3 rounded-lg border border-stroke bg-bg/50 hover:border-accent/25"
+              >
+                <i className="fab fa-github text-accent w-5 text-center text-base"></i>
+                <span className="truncate font-sans font-medium">github.com/atul-pandey-a0ab23198</span>
+              </a>
+            </div>
+
+          </div>
+        </div>
 
       </div>
 
-      {/* 3. Footer Bar Section (Bottom) */}
-      <div className="relative z-10 border-t border-stroke/30 pt-8 mt-12 px-8 md:px-16 lg:px-24">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+      {/* horizontal scrolling marquee text */}
+      <div className="w-full overflow-hidden border-y border-stroke/40 py-4 bg-bg/40 backdrop-blur-sm select-none mb-10">
+        <div className="flex whitespace-nowrap">
+          <div
+            className="inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-muted/30 whitespace-nowrap"
+            style={{
+              animation: 'marquee 28s linear infinite',
+              display: 'inline-block'
+            }}
+          >
+            {repeatedMarquee}
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-[1100px] mx-auto px-6 md:px-10 lg:px-16 relative z-10 border-t border-stroke/30 pt-8">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-muted">
+          <div>
+            &copy; {currentYear} Atul Kumar Pandey. All rights reserved.
+          </div>
           
-          {/* Pulsing Dot Status */}
-          <div className="flex items-center gap-3">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-            </span>
-            <span className="text-[11px] text-text-primary/85 font-semibold tracking-wider uppercase">
-              Available for projects
-            </span>
-          </div>
-
-          {/* Social Anchors */}
           <div className="flex items-center gap-6">
-            <a
-              href="https://linkedin.com/in/atul-pandey-a0ab23198"
-              target="_blank"
-              rel="noreferrer"
-              className="text-xs text-muted hover:text-text-primary font-medium tracking-wide transition-colors"
-            >
-              LinkedIn
-            </a>
-            <a
-              href="https://github.com/atul-pandey-a0ab23198"
-              target="_blank"
-              rel="noreferrer"
-              className="text-xs text-muted hover:text-text-primary font-medium tracking-wide transition-colors"
-            >
-              GitHub
-            </a>
-            <a
-              href="Atul_Pandey_CV.pdf"
-              target="_blank"
-              rel="noreferrer"
-              className="text-xs text-muted hover:text-text-primary font-medium tracking-wide transition-colors"
-            >
-              Resume
-            </a>
+            <a href="mailto:atul.pandey.local@gmail.com" className="hover:text-accent transition-colors">Email</a>
+            <a href="https://linkedin.com/in/atul-pandey-a0ab23198" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">LinkedIn</a>
+            <a href="https://github.com/atul-pandey-a0ab23198" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">GitHub</a>
+            <a href="Atul_Pandey_CV.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">Resume</a>
           </div>
 
+          <div className="text-[10px] text-muted/50 font-sans tracking-wide">
+            ENGINEERED IN DEEP SPACE
+          </div>
         </div>
-
-        {/* Copyright notice */}
-        <div className="text-center mt-12 text-[10px] text-muted/40 font-medium">
-          &copy; 2026 Atul Kumar Pandey. Engineered in deep space.
-        </div>
-
       </div>
 
-    </section>
+      {/* CSS style definition injected for marquee animation */}
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translate3d(0, 0, 0); }
+          100% { transform: translate3d(-50%, 0, 0); }
+        }
+      `}</style>
+    </footer>
   )
 }
+
