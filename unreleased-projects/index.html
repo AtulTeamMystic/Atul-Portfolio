@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Laboratory & Unreleased Projects | Portfolio</title>
+  <meta name="description" content="A list of experimental game prototypes, physics tests, and engine showcases.">
+  
+  <!-- Cache Control to prevent local browser cache issues during development -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+  <link rel="stylesheet" href="../styles.css?v=23">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../" class="nav-brand" id="nav-brand-link">
+        <span class="nav-brand-name" id="brand-name">Augusto Polonio</span>
+        <span class="nav-brand-sub" id="brand-title">Senior Software & Game Developer</span>
+      </a>
+      <div class="nav-links">
+        <a href="../#projects" class="nav-link">Projects</a>
+        <a href="../work-experience/" class="nav-link">Experience</a>
+        <a href="../#about" class="nav-link">About</a>
+        <a href="../#contact" class="nav-link">Contact</a>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="nav-link nav-resume-btn" id="resume-nav-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-down"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>
+          Resume
+        </a>
+      </div>
+      <button class="nav-burger" id="nav-burger-btn" aria-label="Toggle menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="../#projects" class="nav-link">Projects</a>
+    <a href="../work-experience/" class="nav-link">Experience</a>
+    <a href="../#about" class="nav-link">About</a>
+    <a href="../#contact" class="nav-link">Contact</a>
+    <a href="#" target="_blank" rel="noopener noreferrer" class="nav-link nav-resume-btn mobile-resume-link" id="resume-mobile-link">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-down"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>
+      Resume
+    </a>
+  </div>
+
+  <main>
+    <header class="page-header">
+      <div class="container">
+        <h1 class="page-title">Laboratory Experiments</h1>
+        <p class="page-desc">Engine tests, physics prototypes, and unreleased game mechanics.</p>
+      </div>
+    </header>
+
+    <section class="section-py">
+      <div class="container">
+        <div class="lab-grid" id="lab-grid">
+          <!-- Populated dynamically from portfolioData.unreleased -->
+        </div>
+        
+        <div class="back-btn-container">
+          <a href="../" class="btn btn-outline">&larr; Back to Home</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-section">
+    <div class="container">
+      <div class="footer-socials" id="footer-socials-container">
+        <!-- Dynamic socials -->
+      </div>
+      <p class="footer-copyright" id="footer-copyright-text">
+        &copy; 2026 Portfolio. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script src="../portfolio-data.js?v=23"></script>
+  <script src="../script.js?v=23"></script>
+</body>
+</html>
