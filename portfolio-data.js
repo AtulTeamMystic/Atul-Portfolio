@@ -9,15 +9,15 @@ window.portfolioData = {
       "I'm a Senior Unity Developer with 4+ years of professional experience specialising in mobile build pipelines, WebGL optimisation, and real-time multiplayer networking. I focus on bridging the gap between clean C# architecture, advanced physics components, and fluid UI experiences.",
       "Throughout my career, I've successfully delivered end-to-end multi-platform games and metaverse projects across Android, iOS, WebGL, and PC. My expertise includes gameplay state machines, multiplayer engines like Photon PUN2 and Socket.IO, Firebase cloud integrations, and custom rendering optimisations."
     ],
-    avatarFront: "https://augustopolonio.vercel.app/augusto-polonio-avatar.png",
-    avatarBack: "https://augustopolonio.vercel.app/augusto-polonio-avatar.png",
+    avatarFront: "/images/dp/skipper.jpg",
+    avatarBack: "/images/dp/skipper.jpg",
     resumeUrl: "/Atul_Pandey_CV.pdf",
     typedStrings: ["Senior Unity Developer", "Multiplayer Specialist", "Mobile & WebGL Developer"]
   },
 
   socials: {
-    linkedin: "https://www.linkedin.com/in/atul-pandey-a0ab23198/",
-    github: "https://github.com/atul-pandey",
+    linkedin: "https://www.linkedin.com/in/atul-unity-dev/",
+    github: "https://github.com/AtulTeamMystic",
     email: "atul.pandey.local@gmail.com"
   },
 
@@ -51,10 +51,17 @@ window.portfolioData = {
     {
       title: "Adventure Trip: World Wonders",
       description: "Hidden-object puzzle game with 10+ timed levels across world wonder locations. Firebase Firestore for cloud save & progress sync; FCM for re-engagement push notifications. UI/UX designed in Figma and pixel-perfectly implemented in Unity.",
-      image: null,
+      images: [
+        "/images/adventure trip/1.webp",
+        "/images/adventure trip/2.webp",
+        "/images/adventure trip/3.webp",
+        "/images/adventure trip/4.webp",
+        "/images/adventure trip/5.webp",
+        "/images/adventure trip/6.webp"
+      ],
       engine: "Unity 3D",
       engineIcon: "https://augustopolonio.vercel.app/unity_logo.png",
-      tags: ["Unity 3D", "C#", "Firebase", "Figma", "FCM"],
+      tags: ["Unity 3D", "C#", "Firebase", "Figma", "FCM", "AppLovin SDK", "Google AdMob", "Firebase Analytics"],
       playStore: "https://play.google.com/store/apps/details?id=com.Point8Games.AdventureTripWondersoftheWorld",
       link: "https://play.google.com/store/apps/details?id=com.Point8Games.AdventureTripWondersoftheWorld"
     },
@@ -118,7 +125,7 @@ window.portfolioData = {
       category: "Backend & Cloud",
       icon: "☁️",
       color: "#fb923c",
-      items: ["Firebase Auth", "Firestore", "Firebase Functions", "Realtime Database", "FCM", "REST API", "Google Login SDK", "Apple Login SDK"]
+      items: ["Firebase Auth", "Firestore", "Firebase Functions", "Realtime Database", "FCM", "Firebase Analytics", "REST API", "Google Login SDK", "Apple Login SDK"]
     },
     {
       category: "UI/UX & Design",
@@ -136,13 +143,19 @@ window.portfolioData = {
       category: "Monetization",
       icon: "💰",
       color: "#fbbf24",
-      items: ["In-App Purchases (IAP)", "Unity Ads"]
+      items: ["In-App Purchases (IAP)", "Unity Ads", "AppLovin SDK", "Google AdMob"]
     },
     {
       category: "Platforms",
       icon: "📱",
       color: "#a78bfa",
       items: ["Android", "iOS", "PC", "WebGL"]
+    },
+    {
+      category: "AI Technologies",
+      icon: "🤖",
+      color: "#2dd4bf",
+      items: ["ChatGPT Codex", "Antigravity", "Claude Code", "Efficient Prompting"]
     }
   ]
 };

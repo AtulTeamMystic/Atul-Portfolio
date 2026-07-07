@@ -819,7 +819,7 @@ function buildStoreBtns(proj) {
 function initThumbSlideshows() {
   document.querySelectorAll(".project-thumb-wrapper").forEach(wrapper => {
     const imgs = wrapper.querySelectorAll(".thumb-slide-img");
-    const dots = wrapper.querySelectorAll(".slideshow-dot");
+    const dots = wrapper.parentElement.querySelectorAll(".slideshow-dot");
     if (imgs.length < 2) return;
 
     let idx = 0;
