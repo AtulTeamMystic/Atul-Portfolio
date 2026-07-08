@@ -9,8 +9,8 @@ window.portfolioData = {
       "I'm a Senior Unity Developer with 4+ years of professional experience specialising in mobile build pipelines, WebGL optimisation, and real-time multiplayer networking. I focus on bridging the gap between clean C# architecture, advanced physics components, and fluid UI experiences.",
       "Throughout my career, I've successfully delivered end-to-end multi-platform games and metaverse projects across Android, iOS, WebGL, and PC. My expertise includes gameplay state machines, multiplayer engines like Photon PUN2 and Socket.IO, Firebase cloud integrations, and custom rendering optimisations."
     ],
-    avatarFront: "/images/dp/skipper.jpg",
-    avatarBack: "/images/dp/skipper.jpg",
+    avatarFront: "/images/dp/20251118_210825.jpg",
+    avatarBack: "/images/dp/20251118_210825.jpg",
     resumeUrl: "/Atul_Pandey_CV.pdf",
     typedStrings: ["Senior Unity Developer", "Multiplayer Specialist", "Mobile & WebGL Developer"]
   },
