@@ -50,7 +50,10 @@ function initContentBinding() {
   // Set resume urls
   const resumeLinks = document.querySelectorAll("#resume-nav-link, #resume-mobile-link");
   resumeLinks.forEach(link => {
-    link.href = data.profile.resumeUrl;
+    const currentHref = link.getAttribute("href");
+    if (!currentHref || currentHref === "#") {
+      link.href = data.profile.resumeUrl;
+    }
   });
 
   // Home Page Specific bindings

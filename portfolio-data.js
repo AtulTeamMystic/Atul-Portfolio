@@ -42,7 +42,7 @@ window.portfolioData = {
         "/images/mystic motors/Screenshot_20260707_222209.png"
       ],
       engine: "Unity 3D",
-      engineIcon: "https://augustopolonio.vercel.app/unity_logo.png",
+      engineIcon: "/images/unity_logo.png",
       tags: ["Unity 3D", "C#", "Firebase Auth", "Firestore", "Firebase Functions", "Realtime Database", "Google Login SDK", "Apple Login SDK", "Mobile Notifications", "Dedicated Server", "Crashlytics", "Frame Debugger", "Unity Profiler"],
       playStore: "https://play.google.com/store/apps/details?id=com.tecventures.mysticmotors",
       appStore: "https://apps.apple.com/app/id6612030544",
@@ -61,7 +61,7 @@ window.portfolioData = {
         "/images/adventure trip/6.webp"
       ],
       engine: "Unity 3D",
-      engineIcon: "https://augustopolonio.vercel.app/unity_logo.png",
+      engineIcon: "/images/unity_logo.png",
       tags: ["Unity 3D", "C#", "Firebase", "Figma", "FCM", "AppLovin SDK", "Google AdMob", "Firebase Analytics"],
       playStore: "https://play.google.com/store/apps/details?id=com.Point8Games.AdventureTripWondersoftheWorld",
       link: "https://play.google.com/store/apps/details?id=com.Point8Games.AdventureTripWondersoftheWorld"
@@ -81,7 +81,7 @@ window.portfolioData = {
         "/images/kitty dash/Screenshot_20260713_100347.png"
       ],
       engine: "Unity 3D",
-      engineIcon: "https://augustopolonio.vercel.app/unity_logo.png",
+      engineIcon: "/images/unity_logo.png",
       tags: ["Unity 3D", "C#", "Unity Addressables", "Google AdMob", "Endless Runner", "Mobile Optimization", "Asset Bundles", "Game Design"],
       isPortrait: true,
       link: null
@@ -92,7 +92,7 @@ window.portfolioData = {
       description: "Zero-install browser slot game deployed via Unity WebGL. Dynamic payout logic served by REST API; DoTween-driven reel animations at 60fps. Figma-to-Unity UI pipeline with <2px layout deviation.",
       image: null,
       engine: "Unity WebGL",
-      engineIcon: "https://augustopolonio.vercel.app/unity_logo.png",
+      engineIcon: "/images/unity_logo.png",
       tags: ["Unity 3D", "WebGL", "DoTween", "REST API", "Figma"],
       webglLink: "https://slotgameunityweb.netlify.app/",
       link: "https://slotgameunityweb.netlify.app/"
