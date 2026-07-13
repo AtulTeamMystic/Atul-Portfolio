@@ -66,6 +66,26 @@ window.portfolioData = {
       link: "https://play.google.com/store/apps/details?id=com.Point8Games.AdventureTripWondersoftheWorld"
     },
     {
+      title: "Kitty Dash",
+      description: "An endless runner mobile game where players control a running cat to collect coins, dodge obstacles, and purchase power-ups like magnets and shields. Features dynamic asset loading using local Unity Addressables for memory optimization and animations, and Google AdMob SDK integration for monetization.",
+      images: [
+        "/images/kitty dash/Screenshot_20260713_100206.png",
+        "/images/kitty dash/Screenshot_20260713_100212.png",
+        "/images/kitty dash/Screenshot_20260713_100215.png",
+        "/images/kitty dash/Screenshot_20260713_100304.png",
+        "/images/kitty dash/Screenshot_20260713_100309.png",
+        "/images/kitty dash/Screenshot_20260713_100315.png",
+        "/images/kitty dash/Screenshot_20260713_100327.png",
+        "/images/kitty dash/Screenshot_20260713_100342.png",
+        "/images/kitty dash/Screenshot_20260713_100347.png"
+      ],
+      engine: "Unity 3D",
+      engineIcon: "https://augustopolonio.vercel.app/unity_logo.png",
+      tags: ["Unity 3D", "C#", "Unity Addressables", "Google AdMob", "Endless Runner", "Mobile Optimization", "Asset Bundles", "Game Design"],
+      isPortrait: true,
+      link: null
+    },
+    {
       title: "Slot Game (WebGL)",
       description: "Zero-install browser slot game deployed via Unity WebGL. Dynamic payout logic served by REST API; DoTween-driven reel animations at 60fps. Figma-to-Unity UI pipeline with <2px layout deviation.",
       image: null,

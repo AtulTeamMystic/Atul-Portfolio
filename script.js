@@ -850,7 +850,7 @@ function openProjectModal(proj) {
   if (hasImages) {
     galleryHtml = `
       <div class="modal-gallery">
-        <div class="modal-slideshow">
+        <div class="modal-slideshow ${proj.isPortrait ? 'is-portrait' : ''}">
           ${proj.images.map((img, i) => `
             <img src="${img}" alt="${proj.title} screenshot ${i + 1}"
                  class="modal-slide-img ${i === 0 ? 'active' : ''}" data-index="${i}">

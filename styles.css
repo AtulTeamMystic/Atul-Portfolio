@@ -77,24 +77,24 @@ body {
   left: 0;
   right: 0;
   z-index: 50;
-  background-color: rgba(var(--background-rgb, 255, 255, 255), 0.8);
+  background-color: rgba(var(--background-rgb, 26, 27, 38), 0.8);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-b: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
   transition: transform 0.3s ease;
 }
 
 /* Dynamic background RGB values for backdrop-blur transparency */
 :root {
-  --background-rgb: 255, 255, 255;
+  --background-rgb: 26, 27, 38;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --background-rgb: 10, 10, 10;
+    --background-rgb: 26, 27, 38;
   }
 }
 html.dark {
-  --background-rgb: 10, 10, 10;
+  --background-rgb: 26, 27, 38;
 }
 
 .nav-container {
@@ -1530,6 +1530,13 @@ html.dark {
   background-color: #0d0d0d;
   border-radius: 0.75rem;
   overflow: hidden;
+}
+
+.modal-slideshow.is-portrait {
+  aspect-ratio: 9 / 16;
+  max-width: 340px;
+  max-height: 70vh;
+  margin: 0 auto;
 }
 
 .modal-slide-img {
