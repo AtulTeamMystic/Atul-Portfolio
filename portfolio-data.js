@@ -85,6 +85,7 @@ window.portfolioData = {
       isPortrait: true,
       link: null
     },
+    /*
     {
       title: "Slot Game (WebGL)",
       description: "Zero-install browser slot game deployed via Unity WebGL. Dynamic payout logic served by REST API; DoTween-driven reel animations at 60fps. Figma-to-Unity UI pipeline with <2px layout deviation.",
@@ -95,6 +96,7 @@ window.portfolioData = {
       webglLink: "https://slotgameunityweb.netlify.app/",
       link: "https://slotgameunityweb.netlify.app/"
     }
+    */
   ],
 
   // Laboratory marquee — leave empty until you have dedicated screenshots for these
