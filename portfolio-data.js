@@ -18,7 +18,8 @@ window.portfolioData = {
   socials: {
     linkedin: "https://www.linkedin.com/in/atul-unity-dev/",
     github: "https://github.com/AtulTeamMystic",
-    email: "atul.pandey.local@gmail.com"
+    email: "atul.pandey.local@gmail.com",
+    phone: "+91 81308 53178"
   },
 
   projects: [
